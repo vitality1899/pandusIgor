@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продаж пандусів | Колаж та Галерея</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #34d399;
+            --text: #1f2937;
+            --bg: #f1f5f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .container { max-width: 1100px; margin: 20px auto; padding: 0 15px; }
+
+        .product-card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+
+        /* Главное окно просмотра */
+        .main-view {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+            border: 3px solid #e2e8f0;
+        }
+
+        .main-view img, .main-view iframe {
+            width: 100%; height: 100%; display: none; object-fit: contain;
+        }
+
+        .main-view .active { display: block; }
+
+        /* Сетка-коллаж на 10+ элементов */
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 колонок */
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .collage-item {
+            aspect-ratio: 1 / 1;
+            background: #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .collage-item:hover { transform: scale(1.05); z-index: 2; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .collage-item.selected { border-color: var(--primary); }
+
+        .collage-item img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .play-icon {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            color: white; font-size: 1.5em; text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .info-block { background: #f8fafc; padding: 15px; border-radius: 10px; border-left: 5px solid var(--accent); }
+
+        footer { text-align: center; padding: 30px; color: #64748b; }
+
+        @media (max-width: 768px) {
+            .collage-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-wheelchair"></i> Продаж пандусів</h1>
+    <div class="contact-card">
+        <p><i class="fas fa-user"></i>Ігор Гуров</p>
+        <p><i class="fas fa-phone"></i> +380 674 352 455</p>
+        <p><i class="fas fa-envelope"></i>gurov71@gmail.com</p>
+    </div>
+</header>
+
+<div class="container">
+    
+    <!-- АЛЮМІНІЄВИЙ ПАНДУС -->
+    <section class="product-card" id="alum-section">
+        <h2><i class="fas fa-feather-alt"></i> Алюмінієві пандуси</h2>
+        
+        <div class="main-view">
+            <img src="https://images.unsplash.com/photo-1620310937731-979872436894?w=1000" class="active" id="view-alum-img">
+            <iframe src="" frameborder="0" id="view-alum-vid"></iframe>
+        </div>
+
+        <div class="collage-grid">
+            <!-- 10 элементов коллажа -->
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/alumin.jpg', this)">
+                <img src="data/alumin.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/alumin1.jpg', this)">
+                <img src="data/alumin1.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/alumin2.jpg', this)">
+                <img src="data/alumin2.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/alumin3.jpg', this)">
+                <img src="data/alumin3.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('alum', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+        </div>
+
+        <div class="info-block">
+            <p><strong>Переваги:</strong> Легкість, тривалий термін служби, не іржавіє.</p>
+        </div>
+    </section>
+
+    <!-- МЕТАЛЕВИЙ ПАНДУС -->
+    <section class="product-card" id="metal-section">
+        <h2><i class="fas fa-truck-monster"></i> Металеві пандуси</h2>
+        
+        <div class="main-view">
+            <img src="" class="active" id="view-metal-img">
+            <iframe src="" frameborder="0" id="view-metal-vid"></iframe>
+        </div>
+
+        <div class="collage-grid">
+            <!-- 10 элементов коллажа -->
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/metal.jpg', this)">
+                <img src="data/metal.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/metal2.jpg', this)">
+                <img src="data/metal2.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/metal1.jpg', this)">
+                <img src="data/metal1.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+            <div class="collage-item selected" onclick="updateMedia('metal', 'img', 'data/pandys.jpg', this)">
+                <img src="data/pandys.jpg">
+            </div>
+
+
+          
+        </div>
+
+        <div class="info-block">
+            <p><strong>Переваги:</strong> Міцність, надійність, фарбування в будь-який колір.</p>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    &copy; 2026 Професійні пандуси | Україна
+</footer>
+
+<script>
+    function updateMedia(section, type, src, element) {
+        const img = document.getElementById('view-' + section + '-img');
+        const vid = document.getElementById('view-' + section + '-vid');
+        
+        element.parentElement.querySelectorAll('.collage-item').forEach(el => el.classList.remove('selected'));
+        element.classList.add('selected');
+
+        if (type === 'img') {
+            vid.classList.remove('active');
+            vid.src = "";
+            img.src = src;
+            img.classList.add('active');
+        } else {
+            img.classList.remove('active');
+            vid.src = "https://www.youtube.com/embed/" + src + "?autoplay=1";
+            vid.classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
